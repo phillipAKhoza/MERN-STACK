@@ -20,13 +20,12 @@ app.use('/api/workouts',workoutRoutes)
 
 // Connect to mogoose
 mongoose.connect(process.env.MONGO_URI)
-.then(()=>{})
+.then(()=>{
+    // listen to port request
+    app.listen(process.env.PORT, ()=>{
+    console.log('listening on port 5000');
+})
+})
 .catch((error)=>
     console.log(error)
 )
-
-
-// listen to port request
-app.listen(process.env.PORT, ()=>{
-    console.log('listening on port 5000');
-})
