@@ -19,7 +19,11 @@ app.use((req,res,next)=>{
 app.use('/api/workouts',workoutRoutes)
 
 // Connect to mogoose
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI)
+.then(()=>{})
+.catch((error)=>
+    console.log(error)
+)
 
 
 // listen to port request
